@@ -19,8 +19,10 @@ blue=(149,202,255)
 white = (240,240,255)
 font = pygame.font.SysFont(None,40)
 mouse = pygame.Rect((0,0),(10,10))
-window.blit(font.render("Tuna's cookie bot", True, (0,0,0)), (25, 80))
+bg = pygame.draw.rect(window, white, pygame.Rect((20, 80), (260, 30)))
+window.blit(font.render("Tuna's cookie bot", True, blue), (25, 80))
 button1 = pygame.draw.rect(window, blue, pygame.Rect((100, 150), (100, 30)))
+
 window.blit(font.render('start', True, white), (110, 150))
 button2 = pygame.draw.rect(window, blue, pygame.Rect((100, 200), (100, 30)))
 window.blit(font.render('stop', True, white), (110, 200))
@@ -74,7 +76,10 @@ finish = False
 
 
 while run:
-    pygame.event.pump()
+    try:
+        pygame.event.pump()
+    except:
+        pass
     for event in pygame.event.get():
         if event.type == pygame.MOUSEMOTION:
             rectpos = event.pos
