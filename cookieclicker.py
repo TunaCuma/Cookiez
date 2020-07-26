@@ -147,3 +147,4 @@ while run:
 
     if finish:
         close()
+        run = False
