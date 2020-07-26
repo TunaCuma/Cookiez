@@ -1,6 +1,8 @@
 # Cookiez
 An useful bot for cookieclicker game.
 
+![alt text](https://imgur.com/BZtRgz2)
+
 This is my first project using selenium.
 
 just run cookieclicker.py and have fun :)
