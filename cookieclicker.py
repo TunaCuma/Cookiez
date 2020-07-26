@@ -19,7 +19,7 @@ blue=(149,202,255)
 white = (240,240,255)
 font = pygame.font.SysFont(None,40)
 mouse = pygame.Rect((0,0),(10,10))
-window.blit(font.render("Tuna's cookie bot", True, blue), (25, 80))
+window.blit(font.render("Tuna's cookie bot", True, (0,0,0)), (25, 80))
 button1 = pygame.draw.rect(window, blue, pygame.Rect((100, 150), (100, 30)))
 window.blit(font.render('start', True, white), (110, 150))
 button2 = pygame.draw.rect(window, blue, pygame.Rect((100, 200), (100, 30)))
@@ -67,10 +67,10 @@ def close():
 
 golden= 0
 click = 0
-status = "d" #d means stop b means start
+status = False
 opensavegame()
 run = True
-
+finish = False
 
 
 while run:
@@ -80,21 +80,23 @@ while run:
             rectpos = event.pos
         if event.type == pygame.MOUSEBUTTONDOWN:
             if mouse.colliderect(button1):
-                status = "b"
+                status = True
             if mouse.colliderect(button2):
-                status = "d"
+                status = False
         if event.type == pygame.QUIT:
-            close()
+            finish = True
     mouse = pygame.Rect((rectpos), (1, 1))
     keys = pygame.key.get_pressed()
     product , upgrade = None , None
     if click % 100000 == 0 and click != 0:
         savegame()
     if keys[pygame.K_b]:
-        status = "b"
+        status = True
     if keys[pygame.K_d]:
-        status = "d"
-    if status == "b":
+        status = False
+    if keys[pygame.K_ESCAPE]:
+        finish = True
+    if status:
         try:
             cookie.click()
             click+=1
@@ -138,5 +140,5 @@ while run:
             pass
     #to break program press escape or X in cookie bot window
 
-    if keys[pygame.K_ESCAPE]:
+    if finish:
         close()
