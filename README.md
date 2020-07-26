@@ -8,6 +8,7 @@ There is so much to explore in cookie clicker and its hard to achieve them norma
 
 # Use:
 
+![Ek Açıklama 2020-07-26 191138](https://user-images.githubusercontent.com/62616668/88483976-f3ff3980-cf73-11ea-89ff-045d83f80658.png)
 
 just run cookieclicker.py and have fun :)
 
